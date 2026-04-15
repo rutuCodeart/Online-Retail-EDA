@@ -317,10 +317,15 @@ if page == "Welcome":
 
 
     uploaded_file = st.file_uploader("📁 Choose CSV file", type=['csv'])
-    if uploaded_file:
-        with st.spinner("Processing data..."):
-            time.sleep(1.5)
-            df = pd.read_csv(uploaded_file)
+
+if uploaded_file is not None:
+    st.session_state['uploaded_file'] = uploaded_file
+    st.success("File uploaded! Ab 'Data Analysis' page pe jao.")
+
+if 'uploaded_file' in st.session_state:
+    with st.spinner("Processing data..."):
+        time.sleep(1.5)
+        df = pd.read_csv(st.session_state['uploaded_file'])
             
             # --- Data processing ---
             if 'InvoiceDate' in df.columns:
