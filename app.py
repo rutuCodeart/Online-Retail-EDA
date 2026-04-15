@@ -333,9 +333,9 @@ if 'uploaded_file' in st.session_state:
                 df['YearMonth'] = df['InvoiceDate'].dt.to_period('M')
                 df['Month'] = df['InvoiceDate'].dt.month
                 df['DayOfWeek'] = df['InvoiceDate'].dt.dayofweek
-            if all(col in df.columns for col in ['Quantity','UnitPrice']):
+    if all(col in df.columns for col in ['Quantity','UnitPrice']):
                 df['TotalSales'] = df['Quantity'] * df['UnitPrice']
-            if 'InvoiceNo' in df.columns:
+    if 'InvoiceNo' in df.columns:
                 df['IsCancelled'] = df['InvoiceNo'].astype(str).str.startswith('C')
                 df = df[~df['IsCancelled']]
             
