@@ -316,7 +316,7 @@ if page == "Welcome":
     # st.video("videoplayback.mp4")
 
 
-   uploaded_file = st.file_uploader("📁 Choose CSV file", type=['csv'])
+        uploaded_file = st.file_uploader("📁 Choose CSV file", type=['csv'])
 
 if uploaded_file is not None:
     st.session_state['uploaded_file'] = uploaded_file
