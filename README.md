@@ -20,8 +20,6 @@ Exploratory Data Analysis on UK Online Retail dataset to identify sales trends, 
 
 ### 📸 Visualizations
 | Monthly Sales Trend | Top 10 Countries by Revenue |
-| --- | --- |
-| [Graph 1 ka screenshot yaha drag-drop kar] | [Graph 2 ka screenshot yaha drag-drop kar] |
 
 ### 📂 Repository Files
 - `Online_Retail.xlsx` – Dataset from UCI Machine Learning Repository
