@@ -328,7 +328,7 @@ if 'uploaded_file' in st.session_state:
         df = pd.read_csv(st.session_state['uploaded_file'])
             
             # --- Data processing ---
-            if 'InvoiceDate' in df.columns:
+    if 'InvoiceDate' in df.columns:
                 df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'], errors='coerce')
                 df['YearMonth'] = df['InvoiceDate'].dt.to_period('M')
                 df['Month'] = df['InvoiceDate'].dt.month
