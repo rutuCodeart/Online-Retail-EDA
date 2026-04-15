@@ -313,7 +313,7 @@ if page == "Welcome":
     st.markdown("<br>", unsafe_allow_html=True)
 
     # ✅ Video (optional)
-    st.video("videoplayback.mp4")
+    # st.video("videoplayback.mp4")
 
 
     uploaded_file = st.file_uploader("📁 Choose CSV file", type=['csv'])
