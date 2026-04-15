@@ -316,14 +316,14 @@ if page == "Welcome":
     # st.video("videoplayback.mp4")
 
 
-    uploaded_file = st.file_uploader("📁 Choose CSV file", type=['csv'])
+   uploaded_file = st.file_uploader("📁 Choose CSV file", type=['csv'])
 
-            if uploaded_file is not None:
-        st.session_state['uploaded_file'] = uploaded_file
-        st.success("File uploaded! Ab 'Data Analysis' page pe jao.")
+if uploaded_file is not None:
+    st.session_state['uploaded_file'] = uploaded_file
+    st.success("File uploaded!")
 
-            if 'uploaded_file' in st.session_state:
-        with st.spinner("Processing data..."):
+if 'uploaded_file' in st.session_state:
+    with st.spinner("Processing data..."):
         time.sleep(1.5)
         df = pd.read_csv(st.session_state['uploaded_file'])
             
