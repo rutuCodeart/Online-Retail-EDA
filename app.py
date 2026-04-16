@@ -332,8 +332,8 @@ if page == "Welcome":
 
         # --- Data processing ---
         if 'InvoiceDate' in df.columns:
-            df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'], errors='coerce')
-            df['YearMonth'] = df['InvoiceDate'].dt.to_period('M')
+                df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'], errors='coerce')
+                df['YearMonth'] = df['InvoiceDate'].dt.to_period('M')
                 df['Month'] = df['InvoiceDate'].dt.month
                 df['DayOfWeek'] = df['InvoiceDate'].dt.dayofweek
             if all(col in df.columns for col in ['Quantity','UnitPrice']):
