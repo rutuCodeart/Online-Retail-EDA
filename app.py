@@ -316,26 +316,21 @@ if page == "Welcome":
     # st.video("videoplayback.mp4")
 
 
-uploaded_file = st.file_uploader("📁 Choose CSV file", type=['csv'])
-
-if uploaded_file is not None:
-    st.session_state['uploaded_file'] = uploaded_file
-    st.success("File uploaded!")
-
-if 'uploaded_file' in st.session_state:
-    with st.spinner("Processing data..."):
-        time.sleep(1.5)
-        df = pd.read_csv(st.session_state['uploaded_file'])
+    uploaded_file = st.file_uploader("📁 Choose CSV file", type=['csv'])
+    if uploaded_file:
+        with st.spinner("Processing data..."):
+            time.sleep(1.5)
+            df = pd.read_csv(uploaded_file)
             
             # --- Data processing ---
-    if 'InvoiceDate' in df.columns:
+            if 'InvoiceDate' in df.columns:
                 df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'], errors='coerce')
                 df['YearMonth'] = df['InvoiceDate'].dt.to_period('M')
                 df['Month'] = df['InvoiceDate'].dt.month
                 df['DayOfWeek'] = df['InvoiceDate'].dt.dayofweek
-    if all(col in df.columns for col in ['Quantity','UnitPrice']):
+            if all(col in df.columns for col in ['Quantity','UnitPrice']):
                 df['TotalSales'] = df['Quantity'] * df['UnitPrice']
-    if 'InvoiceNo' in df.columns:
+            if 'InvoiceNo' in df.columns:
                 df['IsCancelled'] = df['InvoiceNo'].astype(str).str.startswith('C')
                 df = df[~df['IsCancelled']]
             
